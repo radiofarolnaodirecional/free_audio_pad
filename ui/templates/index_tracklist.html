@@ -1,0 +1,55 @@
+{% if track_count != 0 %}
+    {% for i in tracks %}
+        <li class="list-track-li">
+            <button class="btn-play" onclick="playAudio('{{ i.url }}', 'in')">
+                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 8L0.499999 15.7942L0.5 0.205771L14 8Z" fill="#949494"/>
+                </svg>
+            </button>
+            <div class="btn-play-local" onmouseover="bxappear('.infoflbx')" onmouseleave="bxdisappear('.infoflbx')" onclick="playAudio('{{ i.url }}', 'out')">
+                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 8L0.499999 15.7942L0.5 0.205771L14 8Z" fill="#949494"/>
+                </svg>
+            </div>
+            {% if i.img_url %}
+                <img src="{{ url_for('static', filename='img') }}/{{ i.img_url }}" alt="" class="trk-img">
+            {% else %}
+                <img src="{{ url_for('static', filename='img/trk_default.png') }}" alt="" class="trk-img">
+            {% endif %}
+            <div class="name-path-container">
+                <div>
+                    <div>{{ i.name }}</div>
+                    <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 1L2.5 6.5" stroke="#949494" stroke-width="2"/>
+                        <path d="M0.16795 7.9453C-0.138403 8.40483 -0.0142289 9.0257 0.4453 9.33205C0.904828 9.6384 1.5257 9.51423 1.83205 9.0547L0.16795 7.9453ZM1.16795 6.4453L0.16795 7.9453L1.83205 9.0547L2.83205 7.5547L1.16795 6.4453Z" fill="#949494"/>
+                    </svg>
+                </div>
+                <div>{{ i.url }}</div>
+            </div>
+            <div class="trk-date">
+                added {{ i.date_added.strftime('%Y-%m-%d') }}
+            </div>
+            <div class="trk-delete" onclick="deleteTrack('{{ i.id }}')">
+                DELETE
+            </div>
+            <div class="trk-tag">
+                <div>Tag: {{ i.tag }}</div>
+                <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 1L2.5 6.5" stroke="#949494" stroke-width="2"/>
+                    <path d="M0.16795 7.9453C-0.138403 8.40483 -0.0142289 9.0257 0.4453 9.33205C0.904828 9.6384 1.5257 9.51423 1.83205 9.0547L0.16795 7.9453ZM1.16795 6.4453L0.16795 7.9453L1.83205 9.0547L2.83205 7.5547L1.16795 6.4453Z" fill="#949494"/>
+                </svg>
+            </div>
+        </li>
+    {% endfor %}
+{% else %}
+    <div style="
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    ">
+        <div>No tracks.. :(</div>
+    </div>
+{% endif %}

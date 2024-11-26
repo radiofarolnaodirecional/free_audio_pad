@@ -1,0 +1,9 @@
+{
+    "in_device": "select",
+    "out_device": "select",
+    "show_img": true,
+    "show_track_details": true,
+    "mic_on": true,
+    "vol_in": 100,
+    "vol_out": 50
+}

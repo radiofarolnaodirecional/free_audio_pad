@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>app</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="bar">
+        <div class="lg">App</div>
+        <div class="bar-drag"></div>
+        <div class="bar-btn-container">
+            <div id="btnMinimize">-</div>
+            <div id="btnClose">&times;</div>
+        </div>
+    </div>
+    <div class="div-main">
+        {# content here by fetch #}
+
+        <div style="
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        ">
+            <div class="loading"></div>
+        </div>
+
+    <script>
+        csrfToken = '{{ csrf_token() }}'
+    </script>
+    <script src="{{ url_for('static', filename='js/lib/flbx.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/renderer.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

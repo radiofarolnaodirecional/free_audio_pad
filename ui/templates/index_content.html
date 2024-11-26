@@ -1,0 +1,76 @@
+<div class="bar-area"></div>
+    <div class="div-content">
+        <div class="infoflbx">Play local</div>
+        <div class="infomic">Start mic</div>
+        <div class="modal-bg" onclick="closeAddModal()"></div>
+        <section class="sec-1-container">
+            <header class="header-main">
+                <div class="btn-mic" onclick="startMic()" onmouseover="bxappear('.infomic')" onmouseleave="bxdisappear('.infomic')"> <div class="btn-mic-in"></div> </div>
+                <input type="text" class="search-trk" placeholder="Search">
+                <div class="header-items-right">
+                    <div class="btn-filter" onclick="FlBxMain()"> <div>Filter -</div> </div>
+                    <div class="btn-add"> <div>+</div> </div>
+                    <div>
+                        <div class="modal-add">
+                            <form action="" method="POST" class="form-add">
+                                <label for="add-trk-name">Name</label>
+                                <input type="text" id="add-trk-name" placeholder="optional">
+                                <label for="add-trk-tag">Tag</label>
+                                <input type="text" id="add-trk-tag" placeholder="optional">
+                                <label for="add-trk-url">File url (wav/mp3)</label>
+                                <input type="button" value="Browse.." id="add-trk-url" onclick="getLocalUrlPath('div-url-path')">
+                                <div id="div-url-path" style="color: rgb(74, 74, 74); font-size: 0.8rem;">no file selected</div>
+                                <label for="add-trk-imgurl">Img url</label>
+                                <input type="button" value="Browse.." id="add-trk-imgurl" onclick="getLocalUrlPath('div-img-url-path')">
+                                <div id="div-img-url-path" style="color: rgb(74, 74, 74); font-size: 0.8rem;">no file selected (optional)</div>
+                                <input type="submit" value="Add" id="add-trk-submit" onclick="closeAddModal()">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <ul class="list-track-ul" id="elem">
+                {# content here by fetch #}
+
+                    <div style="
+                        width: 100%;
+                        height: 100%;
+                        background-color: transparent;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    ">
+                        <div class="loading"></div>
+                    </div>
+
+            </ul>
+        </section>
+        <div class="side-cfg">
+            <label for="select-in-device" id="select-in-device-label">Input device <span class="restart-alert">restart after change</span> </label>
+            <select name="select-in-device" id="select-in-device" onchange="saveCfgInputDev(this.value)">
+                {% for i in inputs %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+            <label for="select-out-device" id="select-out-device-label">Output device</label>
+            <select name="select-out-device" id="select-out-device" onchange="saveCfgOutputDev(this.value)">
+                {% for i in outputs %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="range" id="range-label">Local volume</label>
+            <div class="input-container">
+                <div class="input-fill"></div>
+                <input type="range" min="0" max="100" value="0" id="range-vol-1" /> 
+            </div>
+
+            <label for="range" id="range-label2">Out volume</label>
+            <div class="input-container">
+                <div class="input-fill2"></div>
+                <input type="range" min="0" max="100" value="0" id="range-vol-2" /> 
+            </div>
+
+        </div>
+    </div>
+</div>
