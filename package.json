@@ -1,13 +1,13 @@
 {
-    "name": "electronpy",
-    "version": "0.0.0",
+    "name": "free_audio_pad",
+    "version": "0.0.1",
     "description": "",
     "main": "main.js",
     "scripts": {
         "start": "electron .",
         "build": "electron-builder"
     },
-    "author": "",
+    "author": "null",
     "license": "ISC",
     "devDependencies": {
         "electron": "^28.3.3",

@@ -1,0 +1,33 @@
+{
+    "name": "free_audio_pad",
+    "version": "0.0.1",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-builder"
+    },
+    "build": {
+        "appId": "free-audio-pad",
+        "win": {
+            "target": [
+                "nsis"
+            ],
+            "icon": "icon.ico"
+        },
+        "nsis": {
+            "oneClick": true,
+            "installerIcon": "icon.ico",
+            "uninstallerIcon": "icon.ico",
+            "uninstallDisplayName": "audio-pad-uninstaller",
+            "license": "license.md",
+            "allowToChangeInstallationDirectory": false
+        }
+    },
+    "author": "null",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^28.3.3",
+        "electron-builder": "^24.9.1"
+    }
+}

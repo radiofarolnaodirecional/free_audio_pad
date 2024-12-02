@@ -8,6 +8,7 @@ import os
 import shutil
 import uuid
 from pathlib import Path
+from utils.find_free_port import find_free_port
 
 server = Flask(__name__, template_folder='../ui/templates', static_folder='../ui/static')
 server.config.from_pyfile('config.py')
@@ -63,4 +64,6 @@ def add_track():
 if __name__ == "__main__":
     with server.app_context():
         db.create_all()
-    server.run()
+    port = find_free_port()
+    print(f'PORT={port}')
+    server.run(port=port)
