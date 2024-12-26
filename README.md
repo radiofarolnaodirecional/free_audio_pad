@@ -1,1 +1,1 @@
-[ex-img](doc/eximg.png)
+![ex-img](doc/eximg.png)
