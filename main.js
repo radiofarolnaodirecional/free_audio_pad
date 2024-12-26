@@ -7,12 +7,13 @@ var startServer
 var serverPort
 
 app.on('ready', () => {
-
+    
     // open server
     const pythonFile = path.join(__dirname, 'server', 'main.py')
     startServer = spawn('python', [pythonFile])
 
     startServer.stdout.on('data', (data) => {
+        
         try {
             serverPort = data.toString().trim().split("PORT=")[1].split('\n')[0].trim()
 
