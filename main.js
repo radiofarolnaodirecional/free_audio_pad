@@ -22,7 +22,7 @@ app.on('ready', () => {
                 webPreferences:{
                     nodeIntegration: true,
                     contextIsolation: false,
-                    devTools: false
+                    devTools: true
                 },
                 width: 955,
                 height: 600,
